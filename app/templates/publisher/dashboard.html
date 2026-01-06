@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Publisher Dashboard - AdBridge Marketplace{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Publisher Dashboard</h2>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="bi bi-graph-up"></i> Revenue Overview
+                </h5>
+                <p class="card-text text-muted">View your earnings and revenue statistics.</p>
+                <a href="#" class="btn btn-outline-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="bi bi-grid"></i> Ad Slots
+                </h5>
+                <p class="card-text text-muted">Manage your available ad slots and inventory.</p>
+                <a href="#" class="btn btn-outline-primary">Manage Slots</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="bi bi-file-earmark-text"></i> Reports
+                </h5>
+                <p class="card-text text-muted">Access performance reports and analytics.</p>
+                <a href="#" class="btn btn-outline-primary">View Reports</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Recent Activity</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">No recent activity to display.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

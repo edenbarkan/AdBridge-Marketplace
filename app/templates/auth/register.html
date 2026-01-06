@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Register - AdBridge Marketplace{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Register</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('auth.register') }}">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required minlength="8">
+                        <small class="form-text text-muted">Minimum 8 characters</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password_confirm" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="password_confirm" name="password_confirm" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">I want to:</label>
+                        <div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="role" id="role_publisher" value="PUBLISHER" required>
+                                <label class="form-check-label" for="role_publisher">
+                                    Sell ad slots (Publisher)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="role" id="role_advertiser" value="ADVERTISER" required>
+                                <label class="form-check-label" for="role_advertiser">
+                                    Run ad campaigns (Advertiser)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3" id="publisher_fields" style="display: none;">
+                        <label for="display_name" class="form-label">Display Name</label>
+                        <input type="text" class="form-control" id="display_name" name="display_name" placeholder="Your name or site name">
+                        <label for="domain" class="form-label mt-2">Domain (optional)</label>
+                        <input type="text" class="form-control" id="domain" name="domain" placeholder="example.com">
+                    </div>
+                    <div class="mb-3" id="advertiser_fields" style="display: none;">
+                        <label for="company_name" class="form-label">Company Name</label>
+                        <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Your company name">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Register</button>
+                </form>
+                <hr>
+                <p class="text-center mb-0">
+                    Already have an account? <a href="{{ url_for('auth.login') }}">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const publisherRadio = document.getElementById('role_publisher');
+    const advertiserRadio = document.getElementById('role_advertiser');
+    const publisherFields = document.getElementById('publisher_fields');
+    const advertiserFields = document.getElementById('advertiser_fields');
+    
+    function toggleFields() {
+        if (publisherRadio.checked) {
+            publisherFields.style.display = 'block';
+            advertiserFields.style.display = 'none';
+        } else if (advertiserRadio.checked) {
+            publisherFields.style.display = 'none';
+            advertiserFields.style.display = 'block';
+        } else {
+            publisherFields.style.display = 'none';
+            advertiserFields.style.display = 'none';
+        }
+    }
+    
+    publisherRadio.addEventListener('change', toggleFields);
+    advertiserRadio.addEventListener('change', toggleFields);
+    toggleFields();
+});
+</script>
+{% endblock %}
+

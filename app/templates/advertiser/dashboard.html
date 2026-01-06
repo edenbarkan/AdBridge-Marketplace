@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Advertiser Dashboard - AdBridge Marketplace{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Advertiser Dashboard</h2>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="bi bi-megaphone"></i> Campaigns
+                </h5>
+                <p class="card-text text-muted">Create and manage your advertising campaigns.</p>
+                <a href="#" class="btn btn-outline-primary">Manage Campaigns</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="bi bi-bar-chart"></i> Performance
+                </h5>
+                <p class="card-text text-muted">Track campaign performance and metrics.</p>
+                <a href="#" class="btn btn-outline-primary">View Analytics</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="bi bi-wallet2"></i> Billing
+                </h5>
+                <p class="card-text text-muted">Manage your account and payment methods.</p>
+                <a href="#" class="btn btn-outline-primary">Billing Settings</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Active Campaigns</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">No active campaigns. Create your first campaign to get started.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

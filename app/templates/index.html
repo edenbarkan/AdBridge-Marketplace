@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Home - AdBridge Marketplace{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="text-center mb-5">
+            <h1 class="display-4">AdBridge Marketplace</h1>
+            <p class="lead">Connect Publishers and Advertisers</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-megaphone"></i> For Publishers
+                        </h5>
+                        <p class="card-text">
+                            Monetize your website by selling ad slots to advertisers. 
+                            Join our marketplace and start earning revenue.
+                        </p>
+                        {% if not current_user.is_authenticated %}
+                        <a href="{{ url_for('auth.register') }}" class="btn btn-primary">Get Started</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-bullseye"></i> For Advertisers
+                        </h5>
+                        <p class="card-text">
+                            Reach your target audience by running campaigns on premium publisher sites. 
+                            Launch your first campaign today.
+                        </p>
+                        {% if not current_user.is_authenticated %}
+                        <a href="{{ url_for('auth.register') }}" class="btn btn-primary">Get Started</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
