@@ -33,9 +33,13 @@ while retry_count < max_retries:
             sys.exit(1)
 "
 
-# Run database migrations
-echo "Running database migrations..."
-flask db upgrade
+# Run database migrations (if migrations directory exists)
+if [ -d "migrations" ]; then
+    echo "Running database migrations..."
+    flask db upgrade
+else
+    echo "Migrations directory not found. Please run 'flask db init' and 'flask db migrate' first."
+fi
 
 # Start Gunicorn
 echo "Starting Gunicorn..."

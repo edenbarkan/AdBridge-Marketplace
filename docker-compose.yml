@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:15
@@ -39,6 +37,7 @@ services:
       - "${PORT:-8000}:${PORT:-8000}"
     volumes:
       - .:/app
+    command: sh -c "chmod +x entrypoint.sh && ./entrypoint.sh"
 
 volumes:
   postgres_data:
